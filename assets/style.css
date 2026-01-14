@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:root {
+  --br: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Press Start 2P", system-ui;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: black;
+  border-radius: var(--br);
+  padding: 5em;
+  min-height: 100vh;
+  border-radius: 12px;
+  animation: crt-flicker 0.12s infinite;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 1px,
+    rgba(0, 0, 0, 0.18) 1px,
+    rgba(0, 0, 0, 0.18) 2px
+  );
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.02) 0%,
+    transparent 70%
+  );
+  background-size: 3px 3px; /* size of each dot */
+  mix-blend-mode: overlay;
+}
+
+h1 {
+  color: white;
+  font-size: 3em;
+  margin: 0 0 100px;
+  text-align: center;
+  text-shadow: 0 0 6px white;
+}
+
+.flex {
+  display: flex;
+  gap: 2em;
+
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+  }
+}
+
+.game {
+  align-items: center;
+  background-color: black;
+  border: 5px solid white;
+  border-radius: var(--br);
+  box-shadow: 0 0 4px white, 0 0 8px white;
+  color: white;
+  display: flex;
+  font-size: 14px;
+  flex: 1;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  height: 250px;
+  text-shadow: 0 0 2px white, 0 0 4px white;
+  transition: border-color 0.1s, color 0.1s;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+  }
+
+  h2 {
+    position: relative;
+  }
+
+  @media screen and (max-width: 992px) {
+    flex: auto;
+  }
+}
+
+.game:hover {
+  animation: rainbowCycle 0.25s linear infinite;
+  transition: all ease 0.5s;
+}
+
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0.97;
+  }
+  49% {
+    opacity: 0.94;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  51% {
+    opacity: 0.94;
+  }
+  52% {
+    opacity: 0.97;
+  }
+}
+
+@keyframes rainbowCycle {
+  0% {
+    color: #ff0000;
+    border-color: #ff0000;
+  }
+  16% {
+    color: #ff7f00;
+    border-color: #ff7f00;
+  }
+  33% {
+    color: #ffff00;
+    border-color: #ffff00;
+  }
+  50% {
+    color: #00ff00;
+    border-color: #00ff00;
+  }
+  66% {
+    color: #0000ff;
+    border-color: #0000ff;
+  }
+  83% {
+    color: #4b0082;
+    border-color: #4b0082;
+  }
+  100% {
+    color: #9400d3;
+    border-color: #9400d3;
+  }
+}

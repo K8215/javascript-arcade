@@ -4,23 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Javascript Arcade</title>
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
+    <canvas id="starfield"></canvas>
     <h1>Select Game</h1>
     <div class="flex">
       <a class="game" href="/games/asteroids/" target="_blank">
+        <img src="/assets/thumbnails/asteroids.png" alt="asteroids" />
         <h2>Asteroids</h2></a
       >
       <a class="game" href="/games/breakout/" target="_blank">
+        <img src="/assets/thumbnails/breakout.png" alt="breakout" />
         <h2>Breakout</h2></a
       >
       <a class="game" href="/games/centipede/" target="_blank">
+        <img src="/assets/thumbnails/centipede.png" alt="centipede" />
         <h2>Centipede</h2></a
       >
       <a class="game" href="/games/space-invaders/" target="_blank">
+        <img src="/assets/thumbnails/space-invaders.png" alt="space-invaders" />
         <h2>Space Invaders</h2>
       </a>
     </div>
+
+    <script src="/assets/starfield.js"></script>
   </body>
 </html>
