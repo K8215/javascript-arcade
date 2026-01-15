@@ -56,12 +56,15 @@ h1 {
   text-shadow: 0 0 6px white;
 }
 
-.flex {
-  display: flex;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2em;
+  margin: 0 auto;
+  max-width: 980px;
 
-  @media screen and (max-width: 992px) {
-    flex-direction: column;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
